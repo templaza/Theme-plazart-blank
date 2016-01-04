@@ -1,3 +1,6 @@
+/*
+comment
+*/
 <?php
 $plazarttheme_footer_col     =   ot_get_option('plazarttheme_footer_columns',4);
 $plazarttheme_footer_widthl  =   ot_get_option('plazartthemefooterwidth1',3);
