@@ -1,10 +1,4 @@
-/*
-comment
-*/
 <?php
-/*
-* The Header for our theme.
-*/
 $plazarttheme_footer_col     =   ot_get_option('plazarttheme_footer_columns',4);
 $plazarttheme_footer_widthl  =   ot_get_option('plazartthemefooterwidth1',3);
 $plazarttheme_footer_width2  =   ot_get_option('plazartthemefooterwidth2',3);
