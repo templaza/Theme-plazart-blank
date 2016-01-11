@@ -19,8 +19,7 @@
                     echo ('<span class="tz-logo-text">'.esc_html($plazarttheme_text).'</span>');
                 }else{
                     if ( isset($plazarttheme_img_url) && !empty( $plazarttheme_img_url ) ) :
-                        $plazarttheme_img_url_size   =   getimagesize(esc_url($plazarttheme_img_url));
-                        echo'<img src="'.esc_url($plazarttheme_img_url).'" alt="'.get_bloginfo('title').'" width = "'.$plazarttheme_img_url_size[0] .'" height ="'. $plazarttheme_img_url_size[1].'" />';
+                        echo'<img src="'.esc_url($plazarttheme_img_url).'" alt="'.get_bloginfo('title').'" />';
                     else :
                         echo'<img src="'.get_template_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'" width="217" height="38" />';
                     endif;

@@ -14,7 +14,7 @@ $plazarttheme_background = ot_get_option('plazarttheme_404_bk');
 
 ?>
 
-<div class="error">
+<div class="error tz-404page">
 
     <div class="bug-content">
         <h1 class="title-404"><?php echo esc_html($plazarttheme_title); ?></h1>
