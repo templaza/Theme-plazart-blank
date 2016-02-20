@@ -29,29 +29,6 @@
 
 
   }
-
-    /**
-     * plazarttheme setup.
-     *
-     * Set up theme defaults and registers support for various WordPress features.
-     *
-     * Note that this function is hooked into the after_setup_theme hook, which
-     * runs before the init hook. The init hook is too late for some features, such
-     * as indicating support post thumbnails.
-     *
-     */
-    //Enable support for Post Thumbnails
-    add_theme_support('post-thumbnails');
-
-    // Add RSS feed links to <head> for posts and comments.
-    add_theme_support( 'automatic-feed-links' );
-
-    // This theme uses wp_nav_menu() in two locations.
-    register_nav_menu('primary','Primary Menu');
-
-    // add theme support title-tag
-    add_theme_support( 'title-tag' );
-
     if ( ! function_exists( 'plazarttheme_comment' ) ) :
         function plazarttheme_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment;
