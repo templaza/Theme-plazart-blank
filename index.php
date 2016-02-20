@@ -15,7 +15,7 @@
                     ?>
                     <div class="author">
                         Author
-                        <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+                        <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' )) ); ?>">
                             <?php the_author(); ?>
                         </a>
                     </div>

@@ -35,7 +35,7 @@
         ?>
         <img class="loadding_img" src="<?php echo esc_url($plazarttheme_loading); ?>" alt="<?php esc_attr_e('loading...','plazarttheme') ?>" width="<?php echo esc_attr($plazarttheme_loading_image_size[0]);?>" height ="<?php echo esc_attr($plazarttheme_loading_image_size[1]); ?>">
     <?php else: ?>
-        <img class="loadding_img" src="<?php echo (get_template_directory_uri().'/images/loadding.GIF'); ?>" alt="<?php esc_attr_e('loading...','plazarttheme') ?>" width="32" height="39">
+        <img class="loadding_img" src="<?php echo esc_url(get_template_directory_uri().'/images/loadding.GIF'); ?>" alt="<?php esc_attr_e('loading...','plazarttheme') ?>" width="32" height="39">
 
     <?php endif; ?>
 <?php endif; ?>
