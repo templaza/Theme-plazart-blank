@@ -78,17 +78,6 @@ require SERVER_PATH . '/extension/theme-functions.php';
 require SERVER_PATH . '/extension/tz-process-option.php';
 
 
-/*
- * Required: widget contact info
- */
-require SERVER_PATH . '/extension/widgets/contact-info.php';
-
-/*
- * Required: widget view post
- */
-require SERVER_PATH . '/extension/widgets/recent-post.php';
-
-
 if ( class_exists('OT_Loader') ):
     /*
      * Required: List Google Fonts
