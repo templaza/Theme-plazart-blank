@@ -274,6 +274,37 @@ jQuery(document).ready(function(){
             break;
     }
 
+    /*   Theme Color   */
+    var $themecolor = jQuery('#plazarttheme_TZTypecolor').val();
+
+    switch ($themecolor){
+        case '1':
+            jQuery('#setting_plazarttheme_TZThemecustom').slideDown();
+            jQuery('#setting_plazarttheme_TZThemecolor').slideUp();
+            break;
+        default :
+            jQuery('#setting_plazarttheme_TZThemecustom').slideUp;
+            jQuery('#setting_plazarttheme_TZThemecolor').slideDown();
+            break;
+
+    }
+
+    jQuery('#plazarttheme_TZTypecolor').change(function(){
+
+        var $themecolor2 = jQuery(this).val();
+        switch ($themecolor2){
+            case '1':
+                jQuery('#setting_plazarttheme_TZThemecustom').slideDown();
+                jQuery('#setting_plazarttheme_TZThemecolor').slideUp();
+                break;
+            default :
+                jQuery('#setting_plazarttheme_TZThemecustom').slideUp();
+                jQuery('#setting_plazarttheme_TZThemecolor').slideDown();
+                break;
+
+        }
+    });
+
 });
 
 
