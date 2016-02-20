@@ -277,6 +277,10 @@ body #tab_logo a{
 body #tab_TzCustomCss a{
     background: url("../images/css.png") no-repeat left center;
 }
+#tab_TZThemecolor a{
+    background: url("../images/color.png") no-repeat left center ;
+    background-size: 16px 16px;
+}
 body #tab_footeroption a{
     background: url("../images/icon-footer.png") no-repeat left center;
 }
@@ -366,5 +370,11 @@ Metabox
 #setting_plazarttheme_portfolio_image,
 #setting_plazarttheme_portfolio_Quote_content,
 #setting_plazarttheme_portfolio_Quote_ds{
+    display: none;
+}
+
+
+#setting_plazarttheme_TZThemecolor,
+#setting_plazarttheme_TZThemecustom{
     display: none;
 }
