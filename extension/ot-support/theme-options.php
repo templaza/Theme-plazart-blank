@@ -41,6 +41,10 @@ function plazarttheme_theme_options()
         // Close directory handle
         closedir($plazarttheme_dir);
     }
+
+    global $plazarttheme_font_family;
+
+
     /**
      * Custom settings array that will eventually be
      * passes to the OptionTree Settings API Class.
@@ -78,10 +82,6 @@ function plazarttheme_theme_options()
                 'title' => esc_html__('404 Page', 'plazarttheme'),
             ),
             array(
-                'id'    =>  'google_analytics',
-                'title' =>  esc_html__('Google Analytics', 'plazarttheme'),
-            ),
-            array(
                 'id'    =>  'TzSyle',
                 'title' =>  esc_html__('Font Option', 'plazarttheme'),
             ),
@@ -105,6 +105,10 @@ function plazarttheme_theme_options()
             array(
                 'id'    =>  'TzCustomCss',
                 'title' =>  esc_html__('Custom CSS', 'plazarttheme'),
+            ),
+            array(
+                'id'    =>  'TZThemecolor',
+                'title' =>  esc_html__('Theme color', 'plazarttheme'),
             ),
             array(
                 'id'    =>  'TZBackground',
@@ -602,20 +606,6 @@ function plazarttheme_theme_options()
                 'class'     => ''
             ),
 
-
-
-            // Google Analytics
-            array(
-                'id'        => 'plazarttheme_google_analytics',
-                'label'     => esc_html__('Google Analytics', 'plazarttheme'),
-                'desc'      => 'Place the code you get from google here. This should be something like:<br /><br /><code>   // Google analytics <br /> var _gaq = _gaq || []; <br />_gaq.push(["_setAccount", "UA-XXXXXXX-XX"]); <br /> ...</code>',
-                'std'       => '',
-                'type'      => 'textarea-simple',
-                'section'   => 'google_analytics',
-                'rows'      => '4',
-            ),
-
-
             // style option
             array(
                 'id' =>  'plazarttheme_TzSyle',
@@ -697,20 +687,21 @@ function plazarttheme_theme_options()
             array(
                 'id'    =>  'plazarttheme_TzFontFaminy',
                 'label' =>  esc_html__('Font Family', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-family Eg: Monsieur La Doulaise', 'plazarttheme'),
                 'std'   =>  '',
-                'type'  =>  'text',
+                'type'  =>  'select',
                 'section'=> 'TZBody',
+                'choices'  =>   $plazarttheme_font_family
             ),
 
             // body font weight
             array(
                 'id'    =>  'plazarttheme_TzFontFami',
                 'label' =>  esc_html__('Font Weight', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700', 'plazarttheme'),
-                'std'   =>  '',
+                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700.Default:400', 'plazarttheme'),
+                'std'   =>  '400',
                 'type'  =>  'text',
-                'section'=> 'TZBody'
+                'section'=> 'TZBody',
+                'value' =>  '400'
             ),
 
             array(
@@ -802,19 +793,20 @@ function plazarttheme_theme_options()
             array(
                 'id'    =>  'plazarttheme_TzFontFaminyHead',
                 'label' =>  esc_html__('Font Family', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-family Eg: Monsieur La Doulaise', 'plazarttheme'),
                 'std'   =>  '',
-                'type'  =>  'text',
+                'type'  =>  'select',
                 'section'=> 'TzFontHeader',
+                'choices'  =>   $plazarttheme_font_family
             ),
             // header font weight
             array(
                 'id'    =>  'plazarttheme_TzFontHeadGoodurl',
                 'label' =>  esc_html__('Font Weight', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700', 'plazarttheme'),
-                'std'   =>  '',
+                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700.Default:400', 'plazarttheme'),
+                'std'   =>  '400',
                 'type'  =>  'text',
-                'section'=> 'TzFontHeader'
+                'section'=> 'TzFontHeader',
+                'value' =>  '400'
             ),
             array(
                 'id'        =>  'plazarttheme_TzHeadSelecter',
@@ -903,20 +895,21 @@ function plazarttheme_theme_options()
             array(
                 'id'    =>  'plazarttheme_TzFontFaminyMenu',
                 'label' =>  esc_html__('Font Family', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-family Eg: Monsieur La Doulaise', 'plazarttheme'),
                 'std'   =>  '',
-                'type'  =>  'text',
+                'type'  =>  'select',
                 'section'=> 'TzFontMenu',
+                'choices'  =>   $plazarttheme_font_family
             ),
 
             // Menu font weight
             array(
                 'id'    =>  'plazarttheme_TzFontMenuGoodurl',
                 'label' =>  esc_html__('Font Weight', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700', 'plazarttheme'),
-                'std'   =>  '',
+                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700.Default:400', 'plazarttheme'),
+                'std'   =>  '400',
                 'type'  =>  'text',
-                'section'=> 'TzFontMenu'
+                'section'=> 'TzFontMenu',
+                'value' =>  '400'
             ),
 
             array(
@@ -1003,10 +996,10 @@ function plazarttheme_theme_options()
             array(
                 'id'       =>  'plazarttheme_TzFontFaminyCustom',
                 'label'    =>  esc_html__('Font Family', 'plazarttheme'),
-                'desc'     =>  esc_html__('importeg google font-family Eg: Monsieur La Doulaise', 'plazarttheme'),
                 'std'      =>  '',
-                'type'     =>  'text',
+                'type'     =>  'select',
                 'section'  => 'TzFontCustom',
+                'choices'  =>   $plazarttheme_font_family
             ),
 
 
@@ -1014,10 +1007,11 @@ function plazarttheme_theme_options()
             array(
                 'id'    =>  'plazarttheme_TzFontCustomGoodurl',
                 'label' =>  esc_html__('Font Weight', 'plazarttheme'),
-                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700', 'plazarttheme'),
-                'std'   =>  '',
+                'desc'  =>  esc_html__('importeg google font-weight Eg: 300,400,400italic,600,700.Default:400', 'plazarttheme'),
+                'std'   =>  '400',
                 'type'  =>  'text',
-                'section'=> 'TzFontCustom'
+                'section'=> 'TzFontCustom',
+                'value' =>  '400'
             ),
             array(
                 'id'        =>  'plazarttheme_TzCustomSelecter',
@@ -1049,6 +1043,96 @@ function plazarttheme_theme_options()
                  'section'   => 'TzCustomCss',
             ),
             // end custom css
+
+            //========== Theme Color
+            array(
+                'id'        =>  'plazarttheme_TZTypecolor',
+                'label'     =>  esc_html__('Config Color', 'plazarttheme'),
+                'desc'      =>  '',
+                'std'       =>  '0',
+                'type'      =>  'select',
+                'section'   =>  'TZThemecolor',
+                'choices'   =>  array(
+                    array(
+                        'value' =>  '0',
+                        'label' => esc_html__('default Color', 'plazarttheme'),
+                    ),
+                    array(
+                        'value' =>  '1',
+                        'label' => esc_html__('custom color', 'plazarttheme'),
+                    )
+                ),
+            ),
+
+            array(
+                'id'        =>  'plazarttheme_TZThemecolor',
+                'label'     =>  esc_html__('Choose color', 'plazarttheme'),
+                'desc'      =>  '',
+                'sdt'       =>  '',
+                'type'      =>  'radio-image',
+                'section'   =>  'TZThemecolor',
+                'class'     =>  '',
+                'choices'   =>  array(
+                    array(
+                        'value' =>  'themecolor',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor1',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor1.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor2',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor2.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor3',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor3.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor4',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor4.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor5',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor5.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor6',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor6.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor7',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor7.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor8',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor8.jpg'
+                    ),
+                    array(
+                        'value' =>  'themecolor9',
+                        'label' =>  '',
+                        'src'   =>  get_template_directory_uri().'/extension/assets/images/homecolor9.jpg'
+                    ),
+                )
+            ),
+            array(
+                'id'        =>  'plazarttheme_TZThemecustom',
+                'label'     => esc_html__('Choose Color', 'plazarttheme'),
+                'std'       => '',
+                'type'      => 'colorpicker',
+                'section'   => 'TZThemecolor',
+            ),
+            /* end Theme Color*/
 
             /* Background */
 
@@ -1089,14 +1173,6 @@ function plazarttheme_theme_options()
                         'label' => esc_html__('Single image', 'plazarttheme'),
                     ),
                 ),
-            ),
-            array(
-                'id'        =>  'plazarttheme_TZBackgroundColor',
-                'label'     => esc_html__('Color code', 'plazarttheme'),
-                'desc'      => esc_html__('Background color code', 'plazarttheme'),
-                'std'       => '',
-                'type'      => 'colorpicker_opacity',
-                'section'   => 'TZBackground',
             ),
             array(
                 'id'        => 'plazarttheme_background_pattern',
