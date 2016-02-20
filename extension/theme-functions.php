@@ -1,34 +1,35 @@
 <?php
   // enable and register custom sidebar
-  if (function_exists('register_sidebar')) {
-    // default sidebar array
-    $plazarttheme_sidebar_attr = array(
-      'name'          => '',
-      'id'            => '',
-      'description'   => '',
-      'before_widget' => '<aside id="%1$s" class="%2$s widget">',
-      'after_widget'  => '</aside>',
-      'before_title'  => '<h3 class="module-title title-widget"><span>',
-      'after_title'   => '</span></h3>'
-    );
+add_action( 'widgets_init', 'plazarttheme_slug_widgets_init' );
+function plazarttheme_slug_widgets_init() {
+    if (function_exists('register_sidebar')) {
+        // default sidebar array
+        $plazarttheme_sidebar_attr = array(
+            'name'          => '',
+            'id'            => '',
+            'description'   => '',
+            'before_widget' => '<aside id="%1$s" class="%2$s widget">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="module-title title-widget"><span>',
+            'after_title'   => '</span></h3>'
+        );
+        $plazarttheme_sidebars = array(
+            "plazarttheme-sidebar-right"          =>  array("Display sidebar on all page","Sidebar Right"),
+            "plazarttheme-sidebar-event"          =>  array("Display sidebar on all page","Sidebar Left"),
+            "plazarttheme-footer-one"             =>  array("Display footer on all page","Footer 1"),
+            "plazarttheme-footer-two"             =>  array("Display footer on all page","Footer 2"),
+            "plazarttheme-footer-three"           =>  array("Display footer on all page","Footer 3"),
+            "plazarttheme-footer-four"            =>  array("Display footer on all page","Footer 4"),
+        );
+        foreach ($plazarttheme_sidebars as $plazarttheme_key=>$plazarttheme_value) {
+            $plazarttheme_sidebar_attr['id'] = $plazarttheme_key;
+            $plazarttheme_sidebar_attr['description']=$plazarttheme_value[0];
+            $plazarttheme_sidebar_attr['name'] = $plazarttheme_value[1];
+            register_sidebar($plazarttheme_sidebar_attr);
+        }
+    }
+}
 
-    $plazarttheme_id = 0;
-    $plazarttheme_sidebars = array(
-                        "Sidebar left"  => "Display sidebar on all page",
-                        "Footer 1"      => "Display footer 1",
-                        "Footer 2"      => "Display footer 2",
-                        "Footer 3"      => "Display footer 3",
-                        "Footer 4"      => "Display footer 4"
-                     );
-      foreach ($plazarttheme_sidebars as $plazarttheme_key=>$plazarttheme_value) {
-          $plazarttheme_sidebar_attr['name'] = $plazarttheme_key;
-          $plazarttheme_sidebar_attr['description']=$plazarttheme_value;
-          $plazarttheme_sidebar_attr['id'] = 'plazarttheme-sidebar-' . $plazarttheme_id++;
-          register_sidebar($plazarttheme_sidebar_attr);
-      }
-
-
-  }
     if ( ! function_exists( 'plazarttheme_comment' ) ) :
         function plazarttheme_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment;
