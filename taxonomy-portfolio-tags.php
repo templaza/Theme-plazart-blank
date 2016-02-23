@@ -32,7 +32,7 @@
             endwhile; // end while ( have_posts )
             endif; // end if ( have_posts )
             ?>
-            <?php  plazarttheme_paging_nav(); ?>
+            <?php  tz_plazarttheme_paging_nav(); ?>
         </div>
         <div class="col-md-3 tzsidebar">
             <?php get_sidebar(); ?>

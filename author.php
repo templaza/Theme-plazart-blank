@@ -3,10 +3,10 @@
 <section class="container home-post">
     <div class="row">
         <div class="col-md-9">
-            <h1 class="tzarchive"><?php echo  get_search_query() ; ?></h1>
+            <h1 class="tzarchive"><?php echo  esc_html(get_search_query()); ?></h1>
             <?php
             if ( have_posts() ) : while (have_posts()) : the_post() ;
-                $plazarttheme_post_type = get_post_type( $post -> ID );
+                $tz_plazarttheme_post_type = get_post_type( $post -> ID );
                 ?>
                 <article id='post-<?php the_ID(); ?>' class="post-item">
                     <?php the_post_thumbnail(); ?>
@@ -15,7 +15,7 @@
                     <div class="tztag">
                         TAG:
                         <?php
-                        if ( $plazarttheme_post_type == 'post' ):
+                        if ( $tz_plazarttheme_post_type == 'post' ):
                             the_tags( '',',','' ) ;
                         else:
                             the_terms( $post -> ID, 'portfolio-tags','',',' ) ;
@@ -26,7 +26,7 @@
                     <div class="tzcat">
                         CATEGORY :
                         <?php
-                        if ( $plazarttheme_post_type == 'post' ):
+                        if ( $tz_plazarttheme_post_type == 'post' ):
                             the_category(',',',','' ) ;
                         else:
                             the_terms( $post -> ID, 'portfolio-category','',',' ) ;
@@ -42,7 +42,7 @@
             endwhile; // end while ( have_posts )
             endif; // end if ( have_posts )
             ?>
-            <?php plazarttheme_paging_nav() ?>
+            <?php tz_plazarttheme_paging_nav(); ?>
         </div>
         <div class="col-md-3 tzsidebar">
             <?php get_sidebar(); ?>

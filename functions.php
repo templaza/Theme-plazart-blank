@@ -4,9 +4,9 @@
  *constants
  */
 
-define('THEME_PREFIX', 'plazarttheme');
-define('THEME_NAME', 'plazarttheme');
-define('TEXT_DOMAIN', 'plazarttheme');
+define('THEME_PREFIX', 'tz-plazarttheme');
+define('THEME_NAME', 'tz-plazarttheme');
+define('TEXT_DOMAIN', 'tz-plazarttheme');
 define('THEME_VERSION', '1.0');
 define('get_template_directory_uri()', get_template_directory_uri());
 define('SERVER_PATH', get_template_directory());
@@ -16,11 +16,11 @@ define( 'IMG_PATH', get_template_directory_uri().'/images/');
 define( 'FONT_PATH', get_template_directory_uri().'/fonts/');
 
 
-function plazarttheme_setup(){
+function tz_plazarttheme_setup(){
     /**
      * Text domain
      */
-    load_theme_textdomain('plazarttheme', get_template_directory() . '/languages');
+    load_theme_textdomain('tz-plazarttheme', get_template_directory() . '/languages');
 
 
     /**
@@ -56,14 +56,14 @@ function plazarttheme_setup(){
 
 
 }
-add_action( 'after_setup_theme', 'plazarttheme_setup' );
+add_action( 'after_setup_theme', 'tz_plazarttheme_setup' );
 
 
 /*  (tz-demo)    */
-function plazarttheme_add_editor_styles() {
+function tz_plazarttheme_add_editor_styles() {
     add_editor_style();
 }
-add_action( 'admin_init', 'plazarttheme_add_editor_styles' );
+add_action( 'admin_init', 'tz_plazarttheme_add_editor_styles' );
 
 
 
@@ -99,15 +99,15 @@ endif;
 /*
  *  method add global javascript variable THEME_PREFIX to admin_head
  */
-function plazarttheme_theme_prefix_addto_header() {
+function tz_plazarttheme_addto_header() {
     ?>
     <script type="text/javascript">
-        var themeprefix = '<?php echo esc_js('plazarttheme') ?>';
+        var themeprefix = '<?php echo esc_js('tz_plazarttheme') ?>';
     </script>
 <?php
 }
-add_action('admin_head', 'plazarttheme_theme_prefix_addto_header');
-add_action('wp_head', 'plazarttheme_theme_prefix_addto_header');
+add_action('admin_head', 'tz_plazarttheme_addto_header');
+add_action('wp_head', 'tz_plazarttheme_addto_header');
 
 
 /**
@@ -120,7 +120,7 @@ if ( ! isset( $content_width ) )
 /**
  * Show full editor
  */
-function plazarttheme_ilc_mce_buttons($buttons){
+function tz_plazarttheme_ilc_mce_buttons($buttons){
     array_push($buttons,
         "backcolor",
         "anchor",
@@ -134,7 +134,7 @@ function plazarttheme_ilc_mce_buttons($buttons){
     );
     return $buttons;
 }
-add_filter("mce_buttons_2", "plazarttheme_ilc_mce_buttons");
+add_filter("mce_buttons_2", "tz_plazarttheme_ilc_mce_buttons");
 
 /*
  * Adds JavaScript to pages with the comment form to support
@@ -146,46 +146,46 @@ if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 
 
 
-if ( ! function_exists( 'plazarttheme_paging_nav' ) ) {
-    function plazarttheme_paging_nav() {
+if ( ! function_exists( 'tz_plazarttheme_paging_nav' ) ) {
+    function tz_plazarttheme_paging_nav() {
         global $wp_query, $wp_rewrite;
         // Don't print empty markup if there's only one page.
         if ( $wp_query->max_num_pages < 2 ) {
             return;
         }
 
-        $plazarttheme_paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-        $plazarttheme_pagenum_link = html_entity_decode( get_pagenum_link() );
-        $plazarttheme_query_args   = array();
-        $plazarttheme_url_parts    = explode( '?', $plazarttheme_pagenum_link );
+        $tz_plazarttheme_paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+        $tz_plazarttheme_pagenum_link = html_entity_decode( get_pagenum_link() );
+        $tz_plazarttheme_query_args   = array();
+        $tz_plazarttheme_url_parts    = explode( '?', $tz_plazarttheme_pagenum_link );
 
-        if ( isset( $plazarttheme_url_parts[1] ) ) {
-            wp_parse_str( $plazarttheme_url_parts[1], $plazarttheme_query_args );
+        if ( isset( $tz_plazarttheme_url_parts[1] ) ) {
+            wp_parse_str( $tz_plazarttheme_url_parts[1], $tz_plazarttheme_query_args );
         }
 
-        $plazarttheme_pagenum_link = remove_query_arg( array_keys( $plazarttheme_query_args ), $plazarttheme_pagenum_link );
-        $plazarttheme_pagenum_link = trailingslashit( $plazarttheme_pagenum_link ) . '%_%';
+        $tz_plazarttheme_pagenum_link = remove_query_arg( array_keys( $tz_plazarttheme_query_args ), $tz_plazarttheme_pagenum_link );
+        $tz_plazarttheme_pagenum_link = trailingslashit( $tz_plazarttheme_pagenum_link ) . '%_%';
 
-        $plazarttheme_format  = $wp_rewrite->using_index_permalinks() && ! strpos( $plazarttheme_pagenum_link, 'index.php' ) ? 'index.php/' : '';
-        $plazarttheme_format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
+        $tz_plazarttheme_format  = $wp_rewrite->using_index_permalinks() && ! strpos( $tz_plazarttheme_pagenum_link, 'index.php' ) ? 'index.php/' : '';
+        $tz_plazarttheme_format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
         // Set up paginated links.
-        $plazarttheme_links = paginate_links( array(
-            'base'     => $plazarttheme_pagenum_link,
-            'format'   => $plazarttheme_format,
+        $tz_plazarttheme_links = paginate_links( array(
+            'base'     => $tz_plazarttheme_pagenum_link,
+            'format'   => $tz_plazarttheme_format,
             'total'    => $wp_query->max_num_pages,
-            'current'  => $plazarttheme_paged,
+            'current'  => $tz_plazarttheme_paged,
             'mid_size' => 1,
-            'add_args' => array_map( 'urlencode', $plazarttheme_query_args ),
-            'prev_text' => esc_html__( 'Previous', 'plazarttheme' ),
-            'next_text' => esc_html__( 'Next', 'plazarttheme' ),
+            'add_args' => array_map( 'urlencode', $tz_plazarttheme_query_args ),
+            'prev_text' => esc_html__( 'Previous', 'tz-plazarttheme' ),
+            'next_text' => esc_html__( 'Next', 'tz-plazarttheme' ),
         ) );
 
-        if ( $plazarttheme_links ) :
+        if ( $tz_plazarttheme_links ) :
 
             ?>
             <nav class="navigation paging-navigation" role="navigation">
                 <div class="tzpagination2 loop-pagination">
-                    <?php echo $plazarttheme_links; ?>
+                    <?php echo balanceTags($tz_plazarttheme_links); ?>
                 </div><!-- .pagination -->
             </nav><!-- .navigation -->
         <?php
@@ -195,46 +195,46 @@ if ( ! function_exists( 'plazarttheme_paging_nav' ) ) {
 
 
 
-if ( ! function_exists( 'plazarttheme_custom_paging_nav' ) ) {
-    function plazarttheme_custom_paging_nav($plazarttheme_query_total) {
+if ( ! function_exists( 'tz_plazarttheme_custom_paging_nav' ) ) {
+    function tz_plazarttheme_custom_paging_nav($tz_plazarttheme_query_total) {
         global $wp_query, $wp_rewrite;
         // Don't print empty markup if there's only one page.
-        if ( $plazarttheme_query_total < 2 ) {
+        if ( $tz_plazarttheme_query_total < 2 ) {
             return;
         }
 
-        $plazarttheme_paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-        $plazarttheme_pagenum_link = html_entity_decode( get_pagenum_link() );
-        $plazarttheme_query_args   = array();
-        $plazarttheme_url_parts    = explode( '?', $plazarttheme_pagenum_link );
+        $tz_plazarttheme_paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+        $tz_plazarttheme_pagenum_link = html_entity_decode( get_pagenum_link() );
+        $tz_plazarttheme_query_args   = array();
+        $tz_plazarttheme_url_parts    = explode( '?', $tz_plazarttheme_pagenum_link );
 
-        if ( isset( $plazarttheme_url_parts[1] ) ) {
-            wp_parse_str( $plazarttheme_url_parts[1], $plazarttheme_query_args );
+        if ( isset( $tz_plazarttheme_url_parts[1] ) ) {
+            wp_parse_str( $tz_plazarttheme_url_parts[1], $tz_plazarttheme_query_args );
         }
 
-        $plazarttheme_pagenum_link = remove_query_arg( array_keys( $plazarttheme_query_args ), $plazarttheme_pagenum_link );
-        $plazarttheme_pagenum_link = trailingslashit( $plazarttheme_pagenum_link ) . '%_%';
+        $tz_plazarttheme_pagenum_link = remove_query_arg( array_keys( $tz_plazarttheme_query_args ), $tz_plazarttheme_pagenum_link );
+        $tz_plazarttheme_pagenum_link = trailingslashit( $tz_plazarttheme_pagenum_link ) . '%_%';
 
-        $plazarttheme_format  = $wp_rewrite->using_index_permalinks() && ! strpos( $plazarttheme_pagenum_link, 'index.php' ) ? 'index.php/' : '';
-        $plazarttheme_format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
+        $tz_plazarttheme_format  = $wp_rewrite->using_index_permalinks() && ! strpos( $tz_plazarttheme_pagenum_link, 'index.php' ) ? 'index.php/' : '';
+        $tz_plazarttheme_format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
         // Set up paginated links.
-        $plazarttheme_links = paginate_links( array(
-            'base'     => $plazarttheme_pagenum_link,
-            'format'   => $plazarttheme_format,
-            'total'    => $plazarttheme_query_total,
-            'current'  => $plazarttheme_paged,
+        $tz_plazarttheme_links = paginate_links( array(
+            'base'     => $tz_plazarttheme_pagenum_link,
+            'format'   => $tz_plazarttheme_format,
+            'total'    => $tz_plazarttheme_query_total,
+            'current'  => $tz_plazarttheme_paged,
             'mid_size' => 1,
-            'add_args' => array_map( 'urlencode', $plazarttheme_query_args ),
-            'prev_text' => esc_html__( 'Previous', 'plazarttheme' ),
-            'next_text' => esc_html__( 'Next', 'plazarttheme' ),
+            'add_args' => array_map( 'urlencode', $tz_plazarttheme_query_args ),
+            'prev_text' => esc_html__( 'Previous', 'tz-plazarttheme' ),
+            'next_text' => esc_html__( 'Next', 'tz-plazarttheme' ),
         ) );
 
-        if ( $plazarttheme_links ) :
+        if ( $tz_plazarttheme_links ) :
 
             ?>
             <nav class="navigation paging-navigation" role="navigation">
                 <div class="tzpagination2 loop-pagination">
-                    <?php echo $plazarttheme_links; ?>
+                    <?php echo balanceTags($tz_plazarttheme_links); ?>
                 </div><!-- .pagination -->
             </nav><!-- .navigation -->
         <?php
@@ -252,14 +252,14 @@ if ( ! function_exists( 'plazarttheme_custom_paging_nav' ) ) {
 if(!is_admin()):
 
     if ( ! function_exists( 'ot_get_option' ) ) {
-        function ot_get_option( $plazarttheme_option_id, $plazarttheme_default = '' ) {
+        function ot_get_option( $tz_plazarttheme_option_id, $tz_plazarttheme_default = '' ) {
             /* get the saved options */
-            $plazarttheme_options = get_option( 'option_tree' );
+            $tz_plazarttheme_options = get_option( 'option_tree' );
             /* look for the saved value */
-            if ( isset( $plazarttheme_options[$plazarttheme_option_id] ) && '' != $plazarttheme_options[$plazarttheme_option_id] ) {
-                return $plazarttheme_options[$plazarttheme_option_id];
+            if ( isset( $tz_plazarttheme_options[$tz_plazarttheme_option_id] ) && '' != $tz_plazarttheme_options[$tz_plazarttheme_option_id] ) {
+                return $tz_plazarttheme_options[$tz_plazarttheme_option_id];
             }
-            return $plazarttheme_default;
+            return $tz_plazarttheme_default;
         }
     }
 
@@ -289,30 +289,30 @@ if ( function_exists( 'ot_get_option' ) ) {
 /*
  * ADD GOOGLE FONT
  */
-if ( ! function_exists( 'plazarttheme_slug_fonts_url' ) ) {
-    function plazarttheme_slug_fonts_url($plazarttheme_name,$plazarttheme_fontweight) {
-        $plazarttheme_fonts_url = '';
+if ( ! function_exists( 'tz_plazarttheme_slug_fonts_url' ) ) {
+    function tz_plazarttheme_slug_fonts_url($tz_plazarttheme_name,$tz_plazarttheme_fontweight) {
+        $tz_plazarttheme_fonts_url = '';
 
-        if ( 'off' !== _x( 'on', $plazarttheme_name.' font: on or off', 'plazarttheme' ) ) {
-            $plazarttheme_font_families = array();
-            $plazarttheme_font_families[] = $plazarttheme_name.':'.$plazarttheme_fontweight;
+        if ( 'off' !== _x( 'on', $tz_plazarttheme_name.' font: on or off', 'tz-plazarttheme' ) ) {
+            $tz_plazarttheme_font_families = array();
+            $tz_plazarttheme_font_families[] = $tz_plazarttheme_name.':'.$tz_plazarttheme_fontweight;
 
-            $plazarttheme_query_args = array(
-                'family' => urlencode( implode( '|', $plazarttheme_font_families ) ),
+            $tz_plazarttheme_query_args = array(
+                'family' => urlencode( implode( '|', $tz_plazarttheme_font_families ) ),
                 'subset' => urlencode( 'latin,latin-ext' ),
             );
 
-            $plazarttheme_fonts_url = add_query_arg( $plazarttheme_query_args, 'https://fonts.googleapis.com/css' );
+            $tz_plazarttheme_fonts_url = add_query_arg( $tz_plazarttheme_query_args, 'https://fonts.googleapis.com/css' );
         }
 
-        return esc_url_raw( $plazarttheme_fonts_url );
+        return esc_url_raw( $tz_plazarttheme_fonts_url );
     }
 }
 
 
 /*   Creat File Css   */
-if ( ! function_exists( 'plazarttheme_CustomCss' ) ) {
-    function plazarttheme_CustomCss($data='', $prefix='css') {
+if ( ! function_exists( 'tz_plazarttheme_CustomCss' ) ) {
+    function tz_plazarttheme_CustomCss($data='', $prefix='css') {
         $tem_path = get_template_directory();
         $folder_path=$tem_path."/css/custom";
         if (!is_dir($folder_path)) {
@@ -340,32 +340,33 @@ if ( ! function_exists( 'plazarttheme_CustomCss' ) ) {
             }
 
             if(!$wp_filesystem->put_contents( $filepart, $data, 0644) ) {
-                return esc_html__('Failed to create css file', 'plazarttheme');
+                return esc_html__('Failed to create css file', 'tz-plazarttheme');
             }
 
             if(!$wp_filesystem->put_contents( $filepart_css, $data, 0644) ) {
-                return esc_html__('Failed to create css file', 'plazarttheme');
+                return esc_html__('Failed to create css file', 'tz-plazarttheme');
             }
         }
     }
 }
 
 /*  Post Type   */
-function plazarttheme_vafpress_setup() {
+function tz_plazarttheme_vafpress_setup() {
     add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio', 'link','quote' ) );
 }
-add_action( 'after_setup_theme', 'plazarttheme_vafpress_setup' );
+add_action( 'after_setup_theme', 'tz_plazarttheme_vafpress_setup' );
 
 /*method activie plugin*/
-require_once dirname( __FILE__ ) . '/plugins/class-tgm-plugin-activation.php';
-add_action( 'tgmpa_register', 'plazarttheme_register_required_plugins' );
-function plazarttheme_register_required_plugins() {
+require get_template_directory() . '/plugins/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'tz_plazarttheme_register_required_plugins' );
+function tz_plazarttheme_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
      */
-    $plazarttheme_plugins = array(
+    $tz_plazarttheme_plugins = array(
 
         // This is an example of how to include a plugin pre-packaged with a theme
         array(
@@ -409,7 +410,7 @@ function plazarttheme_register_required_plugins() {
      * Some of the strings are added into a sprintf, so see the comments at the
      * end of each line for what each argument will be.
      */
-    $plazarttheme_config = array(
+    $tz_plazarttheme_config = array(
         'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
         'default_path' => '',                      // Default absolute path to bundled plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.
@@ -422,7 +423,7 @@ function plazarttheme_register_required_plugins() {
         'message'      => '',                      // Message to output right before the plugins table.
     );
 
-    tgmpa( $plazarttheme_plugins, $plazarttheme_config );
+    tgmpa( $tz_plazarttheme_plugins, $tz_plazarttheme_config );
 
 }
 ?>
@@ -430,22 +431,22 @@ function plazarttheme_register_required_plugins() {
 
 <?php
 /*  Theme Scripts    */
-add_action('init', 'plazarttheme_register_theme_scripts');
-function plazarttheme_register_theme_scripts()
+add_action('init', 'tz_plazarttheme_register_theme_scripts');
+function tz_plazarttheme_register_theme_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php') {
 
         if (is_admin()) {
-            add_action('admin_enqueue_scripts', 'plazarttheme_register_back_end_scripts');
+            add_action('admin_enqueue_scripts', 'tz_plazarttheme_register_back_end_scripts');
         }else{
-            add_action('wp_enqueue_scripts', 'plazarttheme_register_front_end_styles');
-            add_action('wp_enqueue_scripts', 'plazarttheme_register_front_end_scripts');
+            add_action('wp_enqueue_scripts', 'tz_plazarttheme_register_front_end_styles');
+            add_action('wp_enqueue_scripts', 'tz_plazarttheme_register_front_end_scripts');
         }
     }
 }
 
 //Register Back-End script
-function plazarttheme_register_back_end_scripts(){
+function tz_plazarttheme_register_back_end_scripts(){
 
 
 
@@ -461,10 +462,10 @@ function plazarttheme_register_back_end_scripts(){
 }
 
 //Register Front-End Styles
-function plazarttheme_register_front_end_styles()
+function tz_plazarttheme_register_front_end_styles()
 {
     wp_enqueue_style('bootstrap.min', get_template_directory_uri().'/css/bootstrap.min.css', false );
-//    wp_enqueue_style( 'plazarttheme-open-sans', plazarttheme_slug_fonts_url('Open Sans','300,400,600,700,400italic'), array(), null );
+//    wp_enqueue_style( 'plazarttheme-open-sans', tz_plazarttheme_slug_fonts_url('Open Sans','300,400,600,700,400italic'), array(), null );
     wp_enqueue_style('isotope', get_template_directory_uri().'/css/isotope.css', false );
     if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() ){
         wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider/flexslider.css', false );
@@ -474,53 +475,53 @@ function plazarttheme_register_front_end_styles()
 
     /*   Fonts-option   */
         /*  Font-body   */
-    $plazarttheme_body_font_type       =    ot_get_option('plazarttheme_TZFontType');
-    $plazarttheme_body_font_family     =    ot_get_option('plazarttheme_TzFontFaminy');
-    $plazarttheme_body_font_weight     =    ot_get_option('plazarttheme_TzFontFami');
-    $plazarttheme_body_font_selecter       =   ot_get_option('plazarttheme_TzBodySelecter');
-    if( $plazarttheme_body_font_type == 'Tzgoogle' && $plazarttheme_body_font_family != 'Default' && $plazarttheme_body_font_selecter != '' ){
-        wp_enqueue_style( 'plazarttheme-'.$plazarttheme_body_font_family, plazarttheme_slug_fonts_url($plazarttheme_body_font_family,$plazarttheme_body_font_weight), array(), null );
+    $tz_plazarttheme_body_font_type       =    ot_get_option('plazarttheme_TZFontType');
+    $tz_plazarttheme_body_font_family     =    ot_get_option('plazarttheme_TzFontFaminy');
+    $tz_plazarttheme_body_font_weight     =    ot_get_option('plazarttheme_TzFontFami');
+    $tz_plazarttheme_body_font_selecter       =   ot_get_option('plazarttheme_TzBodySelecter');
+    if( $tz_plazarttheme_body_font_type == 'Tzgoogle' && $tz_plazarttheme_body_font_family != 'Default' && $tz_plazarttheme_body_font_selecter != '' ){
+        wp_enqueue_style( 'plazarttheme-'.$tz_plazarttheme_body_font_family, tz_plazarttheme_slug_fonts_url($tz_plazarttheme_body_font_family,$tz_plazarttheme_body_font_weight), array(), null );
     }
 
         /*  Font-head   */
-    $plazarttheme_head_font_type       =    ot_get_option('plazarttheme_TZFontTypeHead');
-    $plazarttheme_head_font_family     =    ot_get_option('plazarttheme_TzFontFaminyHead');
-    $plazarttheme_head_font_weight     =    ot_get_option('plazarttheme_TzFontHeadGoodurl');
-    $plazarttheme_head_font_selecter   =   ot_get_option('plazarttheme_TzHeadSelecter');
-    if( $plazarttheme_head_font_type == 'Tzgoogle' && $plazarttheme_head_font_family != 'Default' && $plazarttheme_head_font_selecter != '' ){
-        wp_enqueue_style( 'plazarttheme-'.$plazarttheme_head_font_family, plazarttheme_slug_fonts_url($plazarttheme_head_font_family,$plazarttheme_head_font_weight), array(), null );
+    $tz_plazarttheme_head_font_type       =    ot_get_option('plazarttheme_TZFontTypeHead');
+    $tz_plazarttheme_head_font_family     =    ot_get_option('plazarttheme_TzFontFaminyHead');
+    $tz_plazarttheme_head_font_weight     =    ot_get_option('plazarttheme_TzFontHeadGoodurl');
+    $tz_plazarttheme_head_font_selecter   =   ot_get_option('plazarttheme_TzHeadSelecter');
+    if( $tz_plazarttheme_head_font_type == 'Tzgoogle' && $tz_plazarttheme_head_font_family != 'Default' && $tz_plazarttheme_head_font_selecter != '' ){
+        wp_enqueue_style( 'plazarttheme-'.$tz_plazarttheme_head_font_family, tz_plazarttheme_slug_fonts_url($tz_plazarttheme_head_font_family,$tz_plazarttheme_head_font_weight), array(), null );
     }
 
         /*  Font-menu   */
-    $plazarttheme_menu_font_type       =    ot_get_option('plazarttheme_TZFontTypeMenu');
-    $plazarttheme_menu_font_family     =    ot_get_option('plazarttheme_TzFontFaminyMenu');
-    $plazarttheme_menu_font_weight     =    ot_get_option('plazarttheme_TzFontMenuGoodurl');
-    $plazarttheme_menu_font_selecter   =   ot_get_option('plazarttheme_TzMenuSelecter');
-    if( $plazarttheme_menu_font_type == 'Tzgoogle' && $plazarttheme_menu_font_family != 'Default' && $plazarttheme_menu_font_selecter != '' ){
-        wp_enqueue_style( 'plazarttheme-'.$plazarttheme_menu_font_family, plazarttheme_slug_fonts_url($plazarttheme_menu_font_family,$plazarttheme_menu_font_weight), array(), null );
+    $tz_plazarttheme_menu_font_type       =    ot_get_option('plazarttheme_TZFontTypeMenu');
+    $tz_plazarttheme_menu_font_family     =    ot_get_option('plazarttheme_TzFontFaminyMenu');
+    $tz_plazarttheme_menu_font_weight     =    ot_get_option('plazarttheme_TzFontMenuGoodurl');
+    $tz_plazarttheme_menu_font_selecter   =   ot_get_option('plazarttheme_TzMenuSelecter');
+    if( $tz_plazarttheme_menu_font_type == 'Tzgoogle' && $tz_plazarttheme_menu_font_family != 'Default' && $tz_plazarttheme_menu_font_selecter != '' ){
+        wp_enqueue_style( 'plazarttheme-'.$tz_plazarttheme_menu_font_family, tz_plazarttheme_slug_fonts_url($tz_plazarttheme_menu_font_family,$tz_plazarttheme_menu_font_weight), array(), null );
     }
 
         /*  Font-custom   */
-    $plazarttheme_custom_font_type     =    ot_get_option('plazarttheme_TZFontTypeCustom');
-    $plazarttheme_custom_font_family   =    ot_get_option('plazarttheme_TzFontFaminyCustom');
-    $plazarttheme_custom_font_weight   =    ot_get_option('plazarttheme_TzFontCustomGoodurl');
-    $plazarttheme_custom_font_selecter  =   ot_get_option('plazarttheme_TzCustomSelecter');
-    if( $plazarttheme_custom_font_type == 'Tzgoogle' && $plazarttheme_custom_font_family != 'Default' && $plazarttheme_custom_font_selecter != '' ){
-        wp_enqueue_style( 'plazarttheme-'.$plazarttheme_custom_font_family, plazarttheme_slug_fonts_url($plazarttheme_custom_font_family,$plazarttheme_custom_font_weight), array(), null );
+    $tz_plazarttheme_custom_font_type     =    ot_get_option('plazarttheme_TZFontTypeCustom');
+    $tz_plazarttheme_custom_font_family   =    ot_get_option('plazarttheme_TzFontFaminyCustom');
+    $tz_plazarttheme_custom_font_weight   =    ot_get_option('plazarttheme_TzFontCustomGoodurl');
+    $tz_plazarttheme_custom_font_selecter  =   ot_get_option('plazarttheme_TzCustomSelecter');
+    if( $tz_plazarttheme_custom_font_type == 'Tzgoogle' && $tz_plazarttheme_custom_font_family != 'Default' && $tz_plazarttheme_custom_font_selecter != '' ){
+        wp_enqueue_style( 'plazarttheme-'.$tz_plazarttheme_custom_font_family, tz_plazarttheme_slug_fonts_url($tz_plazarttheme_custom_font_family,$tz_plazarttheme_custom_font_weight), array(), null );
     }
 
     /*   End-Fonts-option   */
 
     /*   Themecolor-option   */
-    $plazarttheme_color_type     =    ot_get_option('plazarttheme_TZTypecolor');
-    $plazarttheme_themecolor     =    ot_get_option('plazarttheme_TZThemecolor');
-    if( $plazarttheme_color_type == '0' && $plazarttheme_themecolor != 'themecolor' ){
-        wp_enqueue_style('plazarttheme-themecolor', get_template_directory_uri() . '/css/themecolor/'.$plazarttheme_themecolor.'.css', false);
+    $tz_plazarttheme_color_type     =    ot_get_option('plazarttheme_TZTypecolor');
+    $tz_plazarttheme_themecolor     =    ot_get_option('plazarttheme_TZThemecolor');
+    if( $tz_plazarttheme_color_type == '0' && $tz_plazarttheme_themecolor != 'themecolor' ){
+        wp_enqueue_style('plazarttheme-themecolor', get_template_directory_uri() . '/css/themecolor/'.$tz_plazarttheme_themecolor.'.css', false);
     }
 }
 
 //Register Front-End Scripts
-function plazarttheme_register_front_end_scripts()
+function tz_plazarttheme_register_front_end_scripts()
 {
 
     wp_enqueue_script( 'bootstrap.min', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), false, $in_footer=true );
@@ -542,22 +543,22 @@ function plazarttheme_register_front_end_scripts()
     if ( is_page_template('template-portfolio.php') ):
 
         global $post;
-        $plazarttheme_desktop            =  get_post_meta( $post -> ID, 'plazarttheme_desktop_column', true );
-        $plazarttheme_tabletportrait     =  get_post_meta( $post -> ID, 'plazarttheme_tabletportrait_column', true );
-        $plazarttheme_mobilelandscape    =  get_post_meta( $post -> ID, 'plazarttheme_mobilelandscape_column', true );
-        $plazarttheme_mobileportrait     =  get_post_meta( $post -> ID, 'plazarttheme_mobileportrait_column', true );
-        $plazarttheme_filter_status      =  get_post_meta( $post -> ID, 'plazarttheme_porfolio_filter_status', true ) ;
-        $plazarttheme_paging             =  get_post_meta( $post -> ID, 'plazarttheme_paging', true ) ;
-        $plazarttheme_image              =  get_post_meta( $post -> ID, 'plazarttheme_porfolio_loadding', true) ;
-        if ( isset ( $plazarttheme_image ) && $plazarttheme_image == '' ):
-            $plazarttheme_image =  get_template_directory_uri().'/images/ajax-loader.gif' ;
+        $tz_plazarttheme_desktop            =  get_post_meta( $post -> ID, 'plazarttheme_desktop_column', true );
+        $tz_plazarttheme_tabletportrait     =  get_post_meta( $post -> ID, 'plazarttheme_tabletportrait_column', true );
+        $tz_plazarttheme_mobilelandscape    =  get_post_meta( $post -> ID, 'plazarttheme_mobilelandscape_column', true );
+        $tz_plazarttheme_mobileportrait     =  get_post_meta( $post -> ID, 'plazarttheme_mobileportrait_column', true );
+        $tz_plazarttheme_filter_status      =  get_post_meta( $post -> ID, 'plazarttheme_porfolio_filter_status', true ) ;
+        $tz_plazarttheme_paging             =  get_post_meta( $post -> ID, 'plazarttheme_paging', true ) ;
+        $tz_plazarttheme_image              =  get_post_meta( $post -> ID, 'plazarttheme_porfolio_loadding', true) ;
+        if ( isset ( $tz_plazarttheme_image ) && $tz_plazarttheme_image == '' ):
+            $tz_plazarttheme_image =  get_template_directory_uri().'/images/ajax-loader.gif' ;
         endif;
 
         wp_deregister_script('plazarttheme-jsisotope');
         wp_register_script('plazarttheme-jsisotope', get_template_directory_uri().'/js/jquery.isotope.min.js', array(), false,$in_footer=true);
         wp_enqueue_script('plazarttheme-jsisotope');
 
-        if ( $plazarttheme_paging != 'pagenavi' ) :
+        if ( $tz_plazarttheme_paging != 'pagenavi' ) :
             wp_deregister_script('plazarttheme-infinitescroll');
             wp_register_script('plazarttheme-infinitescroll', get_template_directory_uri().'/js/jquery.infinitescroll.min.min.js', array(), false,$in_footer=true);
             wp_enqueue_script('plazarttheme-infinitescroll');
@@ -571,16 +572,16 @@ function plazarttheme_register_front_end_scripts()
         wp_register_script('plazarttheme-portfolio', get_template_directory_uri().'/js/portfolio.js', array(), false,$in_footer=true);
         wp_enqueue_script('plazarttheme-portfolio');
 
-        $plazarttheme_variables_portfolio = array(
-            'desktop'         =>    $plazarttheme_desktop,
-            'tabletportrait'  =>    $plazarttheme_tabletportrait,
-            'mobilelandscape' =>    $plazarttheme_mobilelandscape,
-            'mobileportrait'  =>    $plazarttheme_mobileportrait,
-            'filter_status'   =>    $plazarttheme_filter_status,
-            'paging'          =>    $plazarttheme_paging,
-            'image'           =>    $plazarttheme_image
+        $tz_plazarttheme_variables_portfolio = array(
+            'desktop'         =>    $tz_plazarttheme_desktop,
+            'tabletportrait'  =>    $tz_plazarttheme_tabletportrait,
+            'mobilelandscape' =>    $tz_plazarttheme_mobilelandscape,
+            'mobileportrait'  =>    $tz_plazarttheme_mobileportrait,
+            'filter_status'   =>    $tz_plazarttheme_filter_status,
+            'paging'          =>    $tz_plazarttheme_paging,
+            'image'           =>    $tz_plazarttheme_image
         );
-        wp_localize_script( 'portfolio', 'variables_portfolio', $plazarttheme_variables_portfolio ) ;
+        wp_localize_script( 'portfolio', 'variables_portfolio', $tz_plazarttheme_variables_portfolio ) ;
 
     endif;
 
@@ -599,8 +600,8 @@ function plazarttheme_register_front_end_scripts()
  * @return JSON object with font data
  *
  */
-function plazarttheme_get_fonts() {
-    $fonts = get_transient("plazarttheme_google_fonts");
+function tz_plazarttheme_get_fonts() {
+    $fonts = get_transient("tz_plazarttheme_google_fonts");
 
     if (false === $fonts)	{
 
@@ -610,7 +611,7 @@ function plazarttheme_get_fonts() {
 
             $error_message = $request->get_error_message();
 
-            echo "Something went wrong: $error_message";
+            echo "Something went wrong: ".esc_html($error_message)."";
 
         } else {
 
@@ -642,7 +643,7 @@ function plazarttheme_get_fonts() {
 
             }
 
-            set_transient("plazarttheme_google_fonts", $fonts, 60 * 60 * 24);
+            set_transient("tz_plazarttheme_google_fonts", $fonts, 60 * 60 * 24);
 
         }
 

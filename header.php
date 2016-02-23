@@ -22,20 +22,20 @@
 <body id="bd" <?php body_class(); ?>>
 
 
-<?php $plazarttheme_show_loading = ot_get_option('plazarttheme_TzGlobalOptionLoading',1);
-    if( isset($plazarttheme_show_loading) && $plazarttheme_show_loading == 1 ):
+<?php $tz_plazarttheme_show_loading = ot_get_option('plazarttheme_TzGlobalOptionLoading',1);
+    if( isset($tz_plazarttheme_show_loading) && $tz_plazarttheme_show_loading == 1 ):
 ?>
     <div id="tzloadding">
     <?php
 
-    $plazarttheme_loading = ot_get_option('plazarttheme_TzGlobalOptionUploadLoading');
+    $tz_plazarttheme_loading = ot_get_option('plazarttheme_TzGlobalOptionUploadLoading');
 
-    if( isset($plazarttheme_loading) && !empty($plazarttheme_loading) ):
-        $plazarttheme_loading_image_size   =   getimagesize(esc_url($plazarttheme_loading));
+    if( isset($tz_plazarttheme_loading) && !empty($tz_plazarttheme_loading) ):
+        $tz_plazarttheme_loading_image_size   =   getimagesize(esc_url($tz_plazarttheme_loading));
         ?>
-        <img class="loadding_img" src="<?php echo esc_url($plazarttheme_loading); ?>" alt="<?php esc_attr_e('loading...','plazarttheme') ?>" width="<?php echo esc_attr($plazarttheme_loading_image_size[0]);?>" height ="<?php echo esc_attr($plazarttheme_loading_image_size[1]); ?>">
+        <img class="loadding_img" src="<?php echo esc_url($tz_plazarttheme_loading); ?>" alt="<?php esc_attr_e('loading...','tz-plazarttheme') ?>" width="<?php echo esc_attr($tz_plazarttheme_loading_image_size[0]);?>" height ="<?php echo esc_attr($tz_plazarttheme_loading_image_size[1]); ?>">
     <?php else: ?>
-        <img class="loadding_img" src="<?php echo esc_url(get_template_directory_uri().'/images/loadding.GIF'); ?>" alt="<?php esc_attr_e('loading...','plazarttheme') ?>" width="32" height="39">
+        <img class="loadding_img" src="<?php echo esc_url(get_template_directory_uri().'/images/loadding.GIF'); ?>" alt="<?php esc_attr_e('loading...','tz-plazarttheme') ?>" width="32" height="39">
 
     <?php endif; ?>
 <?php endif; ?>

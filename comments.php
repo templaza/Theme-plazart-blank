@@ -22,7 +22,7 @@ if ( post_password_required() )
     <?php if ( have_comments() ) : ?>
     <h2 class="comments-title">
         <?php
-        printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'plazarttheme' ),
+        printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'tz-plazarttheme' ),
             number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
         ?>
     </h2>
@@ -42,14 +42,14 @@ if ( post_password_required() )
     if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
         ?>
         <nav class="navigation comment-navigation" role="navigation">
-            <h1 class="screen-reader-text section-heading"><?php esc_html_e( 'Comment navigation','plazarttheme' ); ?></h1>
-            <div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments','plazarttheme' ) ); ?></div>
-            <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;','plazarttheme' ) ); ?></div>
+            <h1 class="screen-reader-text section-heading"><?php esc_html_e( 'Comment navigation','tz-plazarttheme' ); ?></h1>
+            <div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments','tz-plazarttheme' ) ); ?></div>
+            <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;','tz-plazarttheme' ) ); ?></div>
         </nav><!-- .comment-navigation -->
         <?php endif; // Check for comment navigation ?>
 
     <?php if ( ! comments_open() && get_comments_number() ) : ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.' ,'plazarttheme' ); ?></p>
+        <p class="no-comments"><?php esc_html_e( 'Comments are closed.' ,'tz-plazarttheme' ); ?></p>
         <?php endif; ?>
 
     <?php endif; // have_comments() ?>

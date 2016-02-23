@@ -11,7 +11,7 @@
                     <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
                     <?php
                     if ( is_sticky() )
-                      echo 'sticky';
+                      esc_html_e('sticky','tz-plazarttheme');
                     ?>
                     <div class="author">
                         Author
@@ -27,7 +27,7 @@
                     endwhile; // end while ( have_posts )
                 endif; // end if ( have_posts )
             ?>
-            <?php plazarttheme_paging_nav() ?>
+            <?php tz_plazarttheme_paging_nav(); ?>
         </div>
         <div class="col-md-3 tzsidebar">
             <?php get_sidebar(); ?>

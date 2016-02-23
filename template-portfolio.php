@@ -7,34 +7,34 @@
 <?php get_template_part('template_inc/inc','menu'); ?>
 <?php
 // OPTION FOR PAGE PORFOLIO
-$plazarttheme_catid          =  get_post_meta( get_the_ID(), 'plazarttheme_portfolio_catid', true ) ;
-$plazarttheme_filter         =  get_post_meta( get_the_ID() , 'plazarttheme_porfolio_filter', true ) ;
-$plazarttheme_filter_status  =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_filter_status', true ) ;
-$plazarttheme_limit          =  get_post_meta( get_the_ID(), 'plazarttheme_portfolio_limit', true ) ;
-$plazarttheme_orderby        =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_orderby', true ) ;
-$plazarttheme_order          =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_order', true ) ;
-$plazarttheme_paging         =  get_post_meta( get_the_ID(), 'plazarttheme_paging', true ) ;
-$plazarttheme_sidebar        =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_sidebar', true ) ;
+$tz_plazarttheme_catid          =  get_post_meta( get_the_ID(), 'plazarttheme_portfolio_catid', true ) ;
+$tz_plazarttheme_filter         =  get_post_meta( get_the_ID() , 'plazarttheme_porfolio_filter', true ) ;
+$tz_plazarttheme_filter_status  =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_filter_status', true ) ;
+$tz_plazarttheme_limit          =  get_post_meta( get_the_ID(), 'plazarttheme_portfolio_limit', true ) ;
+$tz_plazarttheme_orderby        =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_orderby', true ) ;
+$tz_plazarttheme_order          =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_order', true ) ;
+$tz_plazarttheme_paging         =  get_post_meta( get_the_ID(), 'plazarttheme_paging', true ) ;
+$tz_plazarttheme_sidebar        =  get_post_meta( get_the_ID(), 'plazarttheme_porfolio_sidebar', true ) ;
 
 
-$plazarttheme_class_sidebar = 'col-md-12';
-if($plazarttheme_sidebar == 1){
-    $plazarttheme_class_sidebar = 'col-md-9';
+$tz_plazarttheme_class_sidebar = 'col-md-12';
+if($tz_plazarttheme_sidebar == 1){
+    $tz_plazarttheme_class_sidebar = 'col-md-9';
 }
 ?>
 <div class="tzPortfolio_Container">
     <div class="container">
         <div class="row">
-            <div class="<?php echo esc_attr($plazarttheme_class_sidebar);?>">
-                <?php if ( $plazarttheme_filter_status == 'show' ) : ?>
+            <div class="<?php echo esc_attr($tz_plazarttheme_class_sidebar);?>">
+                <?php if ( $tz_plazarttheme_filter_status == 'show' ) : ?>
                     <div class="tzFilter" data-option-key="filter">
                         <button data-option-value="*" class="selected">Show all</button>
                         <?php
-                            $plazarttheme_terms = get_terms($plazarttheme_filter) ;
-                            if ( isset ( $plazarttheme_terms ) && $plazarttheme_terms != false && $plazarttheme_terms != '' ):
-                                foreach ( $plazarttheme_terms as $plazarttheme_term ) :
+                            $tz_plazarttheme_terms = get_terms($tz_plazarttheme_filter) ;
+                            if ( isset ( $tz_plazarttheme_terms ) && $tz_plazarttheme_terms != false && $tz_plazarttheme_terms != '' ):
+                                foreach ( $tz_plazarttheme_terms as $tz_plazarttheme_term ) :
                         ?>
-                                    <button class="TZHide" id="<?php echo 'plazarttheme-'.$plazarttheme_term -> slug; ?>" data-option-value=".<?php echo 'plazarttheme-'.$plazarttheme_term -> slug; ?>"><?php echo $plazarttheme_term -> name; ?></button>
+                                    <button class="TZHide" id="<?php echo 'plazarttheme-'.esc_attr($tz_plazarttheme_term -> slug); ?>" data-option-value=".<?php echo 'plazarttheme-'.esc_attr($tz_plazarttheme_term -> slug); ?>"><?php echo esc_html($tz_plazarttheme_term -> name); ?></button>
                         <?php
                                 endforeach ;
                             endif ;
@@ -44,65 +44,65 @@ if($plazarttheme_sidebar == 1){
                 <div class="tzPortfolio">
                     <?php
                         if ( get_query_var('paged') ):
-                            $plazarttheme_paged = get_query_var('paged');
+                            $tz_plazarttheme_paged = get_query_var('paged');
                         else:
-                            $plazarttheme_paged = 1;
+                            $tz_plazarttheme_paged = 1;
                         endif;
-                        if( isset($plazarttheme_catid) && !empty($plazarttheme_catid)){
-                            $plazarttheme_cat = array();
-                            if(is_array($plazarttheme_catid)){
-                                sort($plazarttheme_catid);
-                                $plazarttheme_count_cat  =   count($plazarttheme_catid);
+                        if( isset($tz_plazarttheme_catid) && !empty($tz_plazarttheme_catid)){
+                            $tz_plazarttheme_cat = array();
+                            if(is_array($tz_plazarttheme_catid)){
+                                sort($tz_plazarttheme_catid);
+                                $tz_plazarttheme_count_cat  =   count($tz_plazarttheme_catid);
 
-                                for($plazarttheme_i=0; $plazarttheme_i<$plazarttheme_count_cat; $plazarttheme_i++){
-                                    $plazarttheme_cat[]  =   (int)$plazarttheme_catid[$plazarttheme_i];
+                                for($tz_plazarttheme_i=0; $tz_plazarttheme_i<$tz_plazarttheme_count_cat; $tz_plazarttheme_i++){
+                                    $tz_plazarttheme_cat[]  =   (int)$tz_plazarttheme_catid[$tz_plazarttheme_i];
                                 }
 
                             }else{
-                                $plazarttheme_cat[]    = (int)$plazarttheme_catid;
+                                $tz_plazarttheme_cat[]    = (int)$tz_plazarttheme_catid;
                             }
-                            $plazarttheme_args = array(
+                            $tz_plazarttheme_args = array(
                                 'post_type'         =>  'portfolio',
-                                'paged'             =>  $plazarttheme_paged,
-                                'posts_per_page'    =>  $plazarttheme_limit,
-                                'orderby'           =>  $plazarttheme_orderby,
-                                'order'             =>  $plazarttheme_order,
+                                'paged'             =>  $tz_plazarttheme_paged,
+                                'posts_per_page'    =>  $tz_plazarttheme_limit,
+                                'orderby'           =>  $tz_plazarttheme_orderby,
+                                'order'             =>  $tz_plazarttheme_order,
                                 'tax_query'         =>  array(
                                     array(
                                         'taxonomy'  =>  'portfolio-category',
                                         'filed'     =>  'id',
-                                        'terms'      =>  $plazarttheme_cat
+                                        'terms'      =>  $tz_plazarttheme_cat
                                     )
                                 )
                             );
                         }else{
                             $args = array(
                                 'post_type'         =>  'portfolio',
-                                'paged'             =>  $plazarttheme_paged,
-                                'posts_per_page'    =>  $plazarttheme_limit,
-                                'orderby'           =>  $plazarttheme_orderby,
-                                'order'             =>  $plazarttheme_order,
+                                'paged'             =>  $tz_plazarttheme_paged,
+                                'posts_per_page'    =>  $tz_plazarttheme_limit,
+                                'orderby'           =>  $tz_plazarttheme_orderby,
+                                'order'             =>  $tz_plazarttheme_order,
                             );
                         }
 
-                        $plazarttheme_query = new WP_Query( $plazarttheme_args ) ;
-                        if ( $plazarttheme_query -> have_posts() ): while ( $plazarttheme_query -> have_posts() ): $plazarttheme_query -> the_post() ;
-                            $plazarttheme_terms_post = get_the_terms( $post -> ID, $plazarttheme_filter );
-                            $plazarttheme_feature    = get_post_meta( $post -> ID, 'plazarttheme_portfolio_featured', true );
-                            $plazarttheme_class_filter  = '';
-                            $plazarttheme_class_feature = '';
-                             if ( isset ( $plazarttheme_terms_post ) && $plazarttheme_terms_post != false && $plazarttheme_terms_post != '' ):
-                                 foreach ( $plazarttheme_terms_post as $plazarttheme_term_item ):
-                                     $plazarttheme_class_filter .= 'plazarttheme-'.$plazarttheme_term_item -> slug .' ';
+                        $tz_plazarttheme_query = new WP_Query( $tz_plazarttheme_args ) ;
+                        if ( $tz_plazarttheme_query -> have_posts() ): while ( $tz_plazarttheme_query -> have_posts() ): $tz_plazarttheme_query -> the_post() ;
+                            $tz_plazarttheme_terms_post = get_the_terms( $post -> ID, $tz_plazarttheme_filter );
+                            $tz_plazarttheme_feature    = get_post_meta( $post -> ID, 'plazarttheme_portfolio_featured', true );
+                            $tz_plazarttheme_class_filter  = '';
+                            $tz_plazarttheme_class_feature = '';
+                             if ( isset ( $tz_plazarttheme_terms_post ) && $tz_plazarttheme_terms_post != false && $tz_plazarttheme_terms_post != '' ):
+                                 foreach ( $tz_plazarttheme_terms_post as $tz_plazarttheme_term_item ):
+                                     $tz_plazarttheme_class_filter .= 'plazarttheme-'.$tz_plazarttheme_term_item -> slug .' ';
                                  endforeach;
                              endif;
-                            if ( $plazarttheme_feature == 'yes' ) :
-                                $plazarttheme_class_feature = 'tz_feature_item';
+                            if ( $tz_plazarttheme_feature == 'yes' ) :
+                                $tz_plazarttheme_class_feature = 'tz_feature_item';
                             endif;
 
 
                     ?>
-                        <div id="post-<?php the_ID() ; ?>" <?php post_class("portfolio-item $plazarttheme_class_filter $plazarttheme_class_feature") ; ?>>
+                        <div id="post-<?php the_ID() ; ?>" <?php post_class("portfolio-item $tz_plazarttheme_class_filter $tz_plazarttheme_class_feature") ; ?>>
                             <div class="tz-inner">
                                 <div class="item-img">
                                     <?php the_post_thumbnail('large'); ?>
@@ -128,27 +128,27 @@ if($plazarttheme_sidebar == 1){
                     ?>
                 </div><!--end class tzPortfolio-->
                 <?php
-                $plazarttheme_load_class = '';
+                $tz_plazarttheme_load_class = '';
 
-                if ( $plazarttheme_paging != 'pagenavi'  ):
+                if ( $tz_plazarttheme_paging != 'pagenavi'  ):
 
-                    $plazarttheme_load_class = "class ='not_pagenavi'" ;
+                    $tz_plazarttheme_load_class = "class ='not_pagenavi'" ;
                 endif;
 
-                $plazarttheme_ajaxbutton_class = '';
-                if ( $plazarttheme_paging != 'ajaxbutton'  ):
-                    $plazarttheme_ajaxbutton_class = "class ='not_pagenavi'" ;
+                $tz_plazarttheme_ajaxbutton_class = '';
+                if ( $tz_plazarttheme_paging != 'ajaxbutton'  ):
+                    $tz_plazarttheme_ajaxbutton_class = "class ='not_pagenavi'" ;
                 endif;
                 ?>
-                    <div id="tz_append" <?php echo $plazarttheme_ajaxbutton_class ?>>
+                    <div id="tz_append" <?php echo esc_attr($tz_plazarttheme_ajaxbutton_class); ?>>
                         <a href="#tz_append">Load More Projects</a>
                     </div><!--end id tz_append-->
-                <div id="loadajax" <?php echo $plazarttheme_load_class ?>>
-                    <?php plazarttheme_custom_paging_nav($plazarttheme_query->max_num_pages);  ?>
+                <div id="loadajax" <?php echo esc_attr($tz_plazarttheme_load_class); ?>>
+                    <?php tz_plazarttheme_custom_paging_nav($tz_plazarttheme_query->max_num_pages);  ?>
                 </div>
             </div><!--end class col-md-9-->
             <?php
-            if($plazarttheme_sidebar == 1){
+            if($tz_plazarttheme_sidebar == 1){
                 get_sidebar();
             }
             ?>
