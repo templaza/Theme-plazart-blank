@@ -202,7 +202,7 @@ jQuery(document).ready(function(){
 
 // footer
 
-    jQuery('#' + themeprefix + '_footer_columns').change(function(){
+    jQuery('#plazarttheme_footer_columns').change(function(){
 
         var footerchange = jQuery(this).attr('value');
 
@@ -239,7 +239,7 @@ jQuery(document).ready(function(){
                 break;
         }
     });
-    var footervalue =  jQuery('#' + themeprefix + '_footer_columns').attr('value');
+    var footervalue =  jQuery('#plazarttheme_footer_columns').attr('value');
 
     switch (footervalue){
         case'1':
@@ -311,41 +311,41 @@ jQuery(document).ready(function(){
 
 // Background Type Event
 
-jQuery('#' + themeprefix + '_background_type').on('change', function () {
+jQuery('#plazarttheme_background_type').on('change', function () {
     "use strict";
 
     var value = jQuery(this).val();
     if (String(value) === 'none') {
-        jQuery('#setting_' + themeprefix + '_background_pattern, ' +
-            '#setting_' + themeprefix + '_background_single_image').slideUp();
-        jQuery('#setting_' + themeprefix + '_TZBackgroundColor').slideDown();
+        jQuery('#setting_plazarttheme_background_pattern, ' +
+            '#setting_plazarttheme_background_single_image').slideUp();
+        jQuery('#setting_plazarttheme_TZBackgroundColor').slideDown();
     }else if (String(value) === 'pattern') {
-        jQuery('#setting_' + themeprefix + '_background_pattern').slideDown();
-        jQuery('#setting_' + themeprefix + '_background_single_image').slideUp();
-        jQuery('#setting_' + themeprefix + '_TZBackgroundColor').slideUp();
+        jQuery('#setting_plazarttheme_background_pattern').slideDown();
+        jQuery('#setting_plazarttheme_background_single_image').slideUp();
+        jQuery('#setting_plazarttheme_TZBackgroundColor').slideUp();
     }else {
-        jQuery('#setting_' + themeprefix + '_background_pattern').slideUp();
-        jQuery('#setting_' + themeprefix + '_background_single_image').slideDown();
-        jQuery('#setting_' + themeprefix + '_TZBackgroundColor').slideUp();
+        jQuery('#setting_plazarttheme_background_pattern').slideUp();
+        jQuery('#setting_plazarttheme_background_single_image').slideDown();
+        jQuery('#setting_plazarttheme_TZBackgroundColor').slideUp();
     }
 });
 
-var background_type = jQuery('#' + themeprefix + '_background_type').val();
+var background_type = jQuery('#plazarttheme_background_type').val();
 if (String(background_type) === 'none') {
-    jQuery('#setting_' + themeprefix + '_background_pattern, ' +
-        '#setting_' + themeprefix + '_background_single_image').slideUp();
-    jQuery('#setting_' + themeprefix + '_TZBackgroundColor').slideDown();
+    jQuery('#setting_plazarttheme_background_pattern, ' +
+        '#setting_plazarttheme_background_single_image').slideUp();
+    jQuery('#setting_plazarttheme_TZBackgroundColor').slideDown();
 }else if (String(background_type) === 'pattern') {
-    jQuery('#setting_' + themeprefix + '_background_pattern').slideDown();
-    jQuery('#setting_' + themeprefix + '_background_single_image').slideUp();
+    jQuery('#setting_plazarttheme_background_pattern').slideDown();
+    jQuery('#setting_plazarttheme_background_single_image').slideUp();
 } else {
-    jQuery('#setting_' + themeprefix + '_background_pattern').slideUp();
-    jQuery('#setting_' + themeprefix + '_background_single_image').slideDown();
+    jQuery('#setting_plazarttheme_background_pattern').slideUp();
+    jQuery('#setting_plazarttheme_background_single_image').slideDown();
 
 }
 
 // Background Pattern Preview
-jQuery('#setting_' + themeprefix + '_background_pattern .background_pattern').on('click', function () {
+jQuery('#setting_plazarttheme_background_pattern .background_pattern').on('click', function () {
     "use strict";
     if (jQuery('#wpcontent').length > 0) {
         jQuery('#wpcontent').css('background', 'url("' + jQuery(this).attr('src') + '") repeat');
