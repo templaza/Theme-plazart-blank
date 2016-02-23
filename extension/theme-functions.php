@@ -1,10 +1,10 @@
 <?php
   // enable and register custom sidebar
-add_action( 'widgets_init', 'plazarttheme_slug_widgets_init' );
-function plazarttheme_slug_widgets_init() {
+add_action( 'widgets_init', 'tz_plazarttheme_slug_widgets_init' );
+function tz_plazarttheme_slug_widgets_init() {
     if (function_exists('register_sidebar')) {
         // default sidebar array
-        $plazarttheme_sidebar_attr = array(
+        $tz_plazarttheme_sidebar_attr = array(
             'name'          => '',
             'id'            => '',
             'description'   => '',
@@ -13,7 +13,7 @@ function plazarttheme_slug_widgets_init() {
             'before_title'  => '<h3 class="module-title title-widget"><span>',
             'after_title'   => '</span></h3>'
         );
-        $plazarttheme_sidebars = array(
+        $tz_plazarttheme_sidebars = array(
             "plazarttheme-sidebar-right"          =>  array("Display sidebar on all page","Sidebar Right"),
             "plazarttheme-sidebar-event"          =>  array("Display sidebar on all page","Sidebar Left"),
             "plazarttheme-footer-one"             =>  array("Display footer on all page","Footer 1"),
@@ -21,17 +21,17 @@ function plazarttheme_slug_widgets_init() {
             "plazarttheme-footer-three"           =>  array("Display footer on all page","Footer 3"),
             "plazarttheme-footer-four"            =>  array("Display footer on all page","Footer 4"),
         );
-        foreach ($plazarttheme_sidebars as $plazarttheme_key=>$plazarttheme_value) {
-            $plazarttheme_sidebar_attr['id'] = $plazarttheme_key;
-            $plazarttheme_sidebar_attr['description']=$plazarttheme_value[0];
-            $plazarttheme_sidebar_attr['name'] = $plazarttheme_value[1];
-            register_sidebar($plazarttheme_sidebar_attr);
+        foreach ($tz_plazarttheme_sidebars as $tz_plazarttheme_key=>$tz_plazarttheme_value) {
+            $tz_plazarttheme_sidebar_attr['id'] = $tz_plazarttheme_key;
+            $tz_plazarttheme_sidebar_attr['description']=$tz_plazarttheme_value[0];
+            $tz_plazarttheme_sidebar_attr['name'] = $tz_plazarttheme_value[1];
+            register_sidebar($tz_plazarttheme_sidebar_attr);
         }
     }
 }
 
-    if ( ! function_exists( 'plazarttheme_comment' ) ) :
-        function plazarttheme_comment( $comment, $args, $depth ) {
+    if ( ! function_exists( 'tz_plazarttheme_comment' ) ) :
+        function tz_plazarttheme_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment;
             switch ( $comment->comment_type ) :
                 case 'pingback' :
@@ -39,7 +39,7 @@ function plazarttheme_slug_widgets_init() {
                     // Display trackbacks differently than normal comments.
                     ?>
             <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-              <p><?php esc_html_e( 'Pingback:','plazarttheme' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( esc_html__( '(Edit)', 'plazarttheme' ), '<span class="edit-link">', '</span>' ); ?></p>
+              <p><?php esc_html_e( 'Pingback:','tz-plazarttheme' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( esc_html__( '(Edit)', 'tz-plazarttheme' ), '<span class="edit-link">', '</span>' ); ?></p>
                     <?php
                     break;
                 default :
@@ -49,7 +49,7 @@ function plazarttheme_slug_widgets_init() {
                     <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
                         <article id="comment-<?php comment_ID(); ?>" class="comment-body">
                             <?php if ( '0' == $comment->comment_approved ) : ?>
-                            <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.','plazarttheme' ); ?></p>
+                            <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.','tz-plazarttheme' ); ?></p>
                             <?php endif; ?>
                             <div class="comment-author">
                                 <?php echo get_avatar( $comment, 59 ); ?>
@@ -59,7 +59,7 @@ function plazarttheme_slug_widgets_init() {
                                 printf( '<cite class="fn">%1$s %2$s</cite>',
                                     get_comment_author_link(),
                                     // If current post author is also comment author, make it known visually.
-                                    ( $comment->user_id === $post->post_author ) ? '<span> ' . esc_html__( '- Post Author ', 'plazarttheme' ) . '</span>' : ''
+                                    ( $comment->user_id === $post->post_author ) ? '<span> ' . esc_html__( '- Post Author ', 'tz-plazarttheme' ) . '</span>' : ''
                                 );
                                 ?>
                                     <span class="comment-metadata">
@@ -68,12 +68,12 @@ function plazarttheme_slug_widgets_init() {
                                                 esc_url( get_comment_link( $comment->comment_ID ) ),
                                                 get_comment_time( 'c' ),
                                                 /* translators: 1: date, 2: time */
-                                                sprintf( esc_html__( '%1$s', 'plazarttheme' ), get_comment_date('d M, Y') )
+                                                sprintf( esc_html__( '%1$s', 'tz-plazarttheme' ), get_comment_date('d M, Y') )
                                             );
                                         ?>
                                         <?php
-                                        edit_comment_link( esc_html__( 'Edit ', 'plazarttheme' ) );
-                                        comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply', 'plazarttheme' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) );
+                                        edit_comment_link( esc_html__( 'Edit ', 'tz-plazarttheme' ) );
+                                        comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply', 'tz-plazarttheme' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) );
                                         ?>
                                     </span>
                                 <?php comment_text(); ?>
