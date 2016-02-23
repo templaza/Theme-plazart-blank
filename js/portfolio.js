@@ -11,7 +11,7 @@ var $container        =   jQuery('.tzPortfolio'),
 * Method create tags
 * @variables $filter_status
 */
-function plazarttheme_create_tags() {
+function tz_plazarttheme_create_tags() {
     if ( $filter_status == 'show' ) {
         var cat_status = []; //var cat_status = [];
         jQuery('.tzPortfolio .portfolio-item').each(function(){
@@ -37,7 +37,7 @@ function plazarttheme_create_tags() {
  * Method reize image
  * @variables class
  */
-function plazarttheme_ResizeImage(obj){
+function tz_plazarttheme_ResizeImage(obj){
     var widthStage;
     var heightStage ;
     var widthImage;
@@ -71,7 +71,7 @@ function plazarttheme_ResizeImage(obj){
  * @variables mobilelandscape
  * @variables mobileportrait
  */
-function plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait){
+function tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait){
     var contentWidth    = jQuery('.tzPortfolio').width();
     var numberItem      = 2;
     var newColWidth     = 0;
@@ -99,7 +99,7 @@ function plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportr
         });
 
     });
-    plazarttheme_ResizeImage(jQuery('.item-img'));
+    tz_plazarttheme_ResizeImage(jQuery('.item-img'));
 }
 
 /*
@@ -107,13 +107,13 @@ function plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportr
  */
 jQuery(window).bind('load resize', function() {
     if (resizeTimer) clearTimeout(resizeTimer);
-    resizeTimer = setTimeout("plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait)", 100);
+    resizeTimer = setTimeout("tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait)", 100);
 });
 
 /*
  * Method filter portfolio
  */
-function plazarttheme_loadPortfolio(){
+function tz_plazarttheme_loadPortfolio(){
     if ( $filter_status == 'show' ) {
         var $optionSets = jQuery('.tzFilter'),
             $optionLinks = $optionSets.find('button');
@@ -146,15 +146,15 @@ function plazarttheme_loadPortfolio(){
             }
             return false;
         });
-        plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
+        tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
     }
 }
 jQuery(document).ready(function(){
     $container.imagesLoaded( function(){
-        plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
+        tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
     });
-    plazarttheme_create_tags();
-    plazarttheme_loadPortfolio();
+    tz_plazarttheme_create_tags();
+    tz_plazarttheme_loadPortfolio();
 });
 
 if ( $paging != 'pagenavi' ){
@@ -185,9 +185,9 @@ if ( $paging != 'pagenavi' ){
                     // trigger scroll again
                     $container.isotope( 'appended', $newElems);
                     if (String(jQuery.browser.safari) && String(document.readyState) !== "complete") {
-                        plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
+                        tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
                     } else {
-                        plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
+                        tz_plazarttheme_init(Desktop, tabletportrait, mobilelandscape, mobileportrait);
                     }
                     //if there still more item
                     if($newElems.length){
@@ -196,7 +196,7 @@ if ( $paging != 'pagenavi' ){
                     }
                 });
 
-                plazarttheme_create_tags();
+                tz_plazarttheme_create_tags();
             }
         );
 
