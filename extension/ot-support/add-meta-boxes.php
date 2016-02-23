@@ -3,12 +3,12 @@
  * Initialize the meta boxes.
  */
 
-add_action( 'admin_init', 'plazarttheme_custom_meta_boxes');
+add_action( 'admin_init', 'tz_plazarttheme_custom_meta_boxes');
 
 /*
  * Methor add meta boxes for custom post type
  */
-function plazarttheme_custom_meta_boxes(){
+function tz_plazarttheme_custom_meta_boxes(){
 
     /**
      * Create a custom meta boxes array that we pass to
@@ -17,19 +17,19 @@ function plazarttheme_custom_meta_boxes(){
 
 
 
-    $plazarttheme_portfolio_meta_box =   array(
+    $tz_plazarttheme_portfolio_meta_box =   array(
         'id'          =>  'portfolio_meta_box',
-        'title'       =>  esc_html__('Portfolio Option', 'plazarttheme'),
+        'title'       =>  esc_html__('Portfolio Option', 'tz-plazarttheme'),
         'desc'        =>  '',
         'pages'       => array( 'portfolio'),
         'context'     => 'normal',
         'priority'    => 'high',
         'fields'      => array(
             array(
-                'label'     =>  esc_html__('Post Type', 'plazarttheme'),
+                'label'     =>  esc_html__('Post Type', 'tz-plazarttheme'),
                 'id'        =>  'plazarttheme_portfolio_type',
                 'type'      =>  'select',
-                'desc'      =>  esc_html__('Option type Post', 'plazarttheme'),
+                'desc'      =>  esc_html__('Option type Post', 'tz-plazarttheme'),
                 'std'       =>  'none',
                 'rows'      => '',
                 'post_type' => '',
@@ -38,34 +38,34 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' => 'none',
-                        'label' => esc_html__('None', 'plazarttheme')
+                        'label' => esc_html__('None', 'tz-plazarttheme')
                     ),
                     array(
                         'value' => 'video',
-                        'label' => esc_html__('Video', 'plazarttheme')
+                        'label' => esc_html__('Video', 'tz-plazarttheme')
                     ),
                     array(
                         'value' => 'audio',
-                        'label' => esc_html__('Audio', 'plazarttheme')
+                        'label' => esc_html__('Audio', 'tz-plazarttheme')
                     ),
                     array(
                         'value' => 'quote',
-                        'label' => esc_html__('Quote', 'plazarttheme')
+                        'label' => esc_html__('Quote', 'tz-plazarttheme')
                     ),
                     array(
                         'value' => 'image',
-                        'label' => esc_html__('Image', 'plazarttheme')
+                        'label' => esc_html__('Image', 'tz-plazarttheme')
                     ),
                     array(
                         'value' => 'slideshows',
-                        'label' => esc_html__('Slideshows', 'plazarttheme')
+                        'label' => esc_html__('Slideshows', 'tz-plazarttheme')
                     )
                 ),
 
             ),
 
             array(
-                'label'     => esc_html__('Slideshow', 'plazarttheme'),
+                'label'     => esc_html__('Slideshow', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_slideshows',
                 'type'      => 'list-item',
                 'desc'      => '',
@@ -73,23 +73,23 @@ function plazarttheme_custom_meta_boxes(){
                 'settings'  => array(
                     array(
                         'id'        => 'plazarttheme_portfolio_slideshow_item',
-                        'label'     => esc_html__('Image', 'plazarttheme'),
+                        'label'     => esc_html__('Image', 'tz-plazarttheme'),
                         'type'      => 'upload',
                         'class'     => 'portfolio-slideshow-item',
                     )
                 )
             ),
             array(
-                'label'     => esc_html__('Image', 'plazarttheme'),
+                'label'     => esc_html__('Image', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_image',
                 'type'      => 'upload',
                 'desc'      => ''
             ),
             array(
-                'label'     => esc_html__('SoundCloud ID', 'plazarttheme'),
+                'label'     => esc_html__('SoundCloud ID', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_soundCloud_id',
                 'type'      => 'text',
-                'desc'      => esc_html__('Only use for the SoundCloud', 'plazarttheme'),
+                'desc'      => esc_html__('Only use for the SoundCloud', 'tz-plazarttheme'),
                 'std'       => '',
                 'rows'      => '',
                 'post_type' => '',
@@ -98,7 +98,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
 
             array(
-                'label'     => esc_html__('Quote Content', 'plazarttheme'),
+                'label'     => esc_html__('Quote Content', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_Quote_content',
                 'type'      => 'textarea',
                 'desc'      => '',
@@ -108,7 +108,7 @@ function plazarttheme_custom_meta_boxes(){
                 'taxonomy'  => ''
             ),
             array(
-                'label'     => esc_html__('Quote Description', 'plazarttheme'),
+                'label'     => esc_html__('Quote Description', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_Quote_ds',
                 'type'      => 'text',
                 'desc'      => '',
@@ -119,7 +119,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
 
             array(
-                'label'     => esc_html__('Video MP4', 'plazarttheme'),
+                'label'     => esc_html__('Video MP4', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_video_mp4',
                 'type'      => 'upload',
                 'desc'      => '',
@@ -129,7 +129,7 @@ function plazarttheme_custom_meta_boxes(){
                 'taxonomy'  => ''
             ),
             array(
-                'label'     => esc_html__('Video OGV', 'plazarttheme'),
+                'label'     => esc_html__('Video OGV', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_video_ogv',
                 'type'      => 'upload',
                 'desc'      => '',
@@ -139,7 +139,7 @@ function plazarttheme_custom_meta_boxes(){
                 'taxonomy'  => ''
             ),
             array(
-                'label'     => esc_html__('Video WEBM', 'plazarttheme'),
+                'label'     => esc_html__('Video WEBM', 'tz-plazarttheme'),
                 'id'        => 'plazarttheme_portfolio_video_webm',
                 'type'      => 'upload',
                 'desc'      => '',
@@ -151,9 +151,9 @@ function plazarttheme_custom_meta_boxes(){
         )
     );
 
-    $plazarttheme_pageportfolio_meta_box =   array(
+    $tz_plazarttheme_pageportfolio_meta_box =   array(
         'id'          =>  'page_meta_box',
-        'title'       =>  esc_html__('Portfolio Option', 'plazarttheme'),
+        'title'       =>  esc_html__('Portfolio Option', 'tz-plazarttheme'),
         'desc'        =>  '',
         'pages'       => array( 'page'),
         'context'     => 'normal',
@@ -161,7 +161,7 @@ function plazarttheme_custom_meta_boxes(){
         'fields'      => array(
             array(
                 'id' =>  'plazarttheme_portfolio_column',
-                'label'     => esc_html__('Config Portfolio Column', 'plazarttheme'),
+                'label'     => esc_html__('Config Portfolio Column', 'tz-plazarttheme'),
                 'desc'      => '------------------',
                 'std'       => '',
                 'type'      => 'textblock-titled',
@@ -173,7 +173,7 @@ function plazarttheme_custom_meta_boxes(){
 
             array(
                 'id'        =>  'plazarttheme_desktop_column',
-                'label'     => esc_html__('Desktop column', 'plazarttheme'),
+                'label'     => esc_html__('Desktop column', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  '4',
                 'type'      =>  'select',
@@ -203,7 +203,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        =>  'plazarttheme_tabletportrait_column',
-                'label'     =>  esc_html__('tablet portrait column', 'plazarttheme'),
+                'label'     =>  esc_html__('tablet portrait column', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  '2',
                 'type'      =>  'select',
@@ -229,7 +229,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        =>  'plazarttheme_mobilelandscape_column',
-                'label'     =>  esc_html__('mobile landscape column', 'plazarttheme'),
+                'label'     =>  esc_html__('mobile landscape column', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  '2',
                 'type'      =>  'select',
@@ -255,7 +255,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        =>  'plazarttheme_mobileportrait_column',
-                'label'     =>  esc_html__('mobile portrait column', 'plazarttheme'),
+                'label'     =>  esc_html__('mobile portrait column', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  '1',
                 'type'      =>  'select',
@@ -282,8 +282,8 @@ function plazarttheme_custom_meta_boxes(){
 
             array(
                 'id'        => 'plazarttheme_portfolio_catid',
-                'label'     => esc_html__('Category', 'plazarttheme'),
-                'desc'      => esc_html__('Choose category portfolio', 'plazarttheme'),
+                'label'     => esc_html__('Category', 'tz-plazarttheme'),
+                'desc'      => esc_html__('Choose category portfolio', 'tz-plazarttheme'),
                 'std'       => '',
                 'type'      => 'taxonomy-checkbox',
                 'rows'      => '',
@@ -293,7 +293,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        => 'plazarttheme_portfolio_limit',
-                'label'     => esc_html__('Limit portfolio', 'plazarttheme'),
+                'label'     => esc_html__('Limit portfolio', 'tz-plazarttheme'),
                 'desc'      => '',
                 'std'       => '10',
                 'type'      => 'text',
@@ -304,7 +304,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_orderby',
-                'label'     => esc_html__('Orderby', 'plazarttheme'),
+                'label'     => esc_html__('Orderby', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  'date',
                 'type'      =>  'select',
@@ -312,21 +312,21 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' =>  'date',
-                        'label' =>  esc_html__('Date', 'plazarttheme'),
+                        'label' =>  esc_html__('Date', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'title',
-                        'label' =>  esc_html__('Title', 'plazarttheme'),
+                        'label' =>  esc_html__('Title', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'id',
-                        'label' =>  esc_html__('ID', 'plazarttheme'),
+                        'label' =>  esc_html__('ID', 'tz-plazarttheme'),
                     ),
                 )
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_order',
-                'label'     =>  esc_html__('Order', 'plazarttheme'),
+                'label'     =>  esc_html__('Order', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  'desc',
                 'type'      =>  'select',
@@ -334,39 +334,39 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' =>  'desc',
-                        'label' =>  esc_html__('Z ---> A', 'plazarttheme'),
+                        'label' =>  esc_html__('Z ---> A', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'asc',
-                        'label' =>  esc_html__('A ---> Z', 'plazarttheme'),
+                        'label' =>  esc_html__('A ---> Z', 'tz-plazarttheme'),
                     ),
                 )
             ),
             array(
                 'id'        =>  'plazarttheme_paging',
-                'label'     =>  esc_html__('Paging', 'plazarttheme'),
-                'desc'      =>  esc_html__('choose type paging', 'plazarttheme'),
+                'label'     =>  esc_html__('Paging', 'tz-plazarttheme'),
+                'desc'      =>  esc_html__('choose type paging', 'tz-plazarttheme'),
                 'sdt'       =>  'ajaxscroll',
                 'type'      =>  'select',
                 'class'     =>  '',
                 'choices'   =>  array(
                     array(
                         'value' =>  'pagenavi',
-                        'label' =>  esc_html__('Default ( 1, 2, 3 ... 8, 9 , 10)', 'plazarttheme'),
+                        'label' =>  esc_html__('Default ( 1, 2, 3 ... 8, 9 , 10)', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'ajaxbutton',
-                        'label' =>  esc_html__('Ajaxbutton', 'plazarttheme'),
+                        'label' =>  esc_html__('Ajaxbutton', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'ajaxscroll',
-                        'label' =>  esc_html__('Ajax scroll', 'plazarttheme'),
+                        'label' =>  esc_html__('Ajax scroll', 'tz-plazarttheme'),
                     ),
                 )
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_filter_status',
-                'label'     =>  esc_html__('Filter Status', 'plazarttheme'),
+                'label'     =>  esc_html__('Filter Status', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  'show',
                 'type'      =>  'select',
@@ -374,17 +374,17 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' =>  'show',
-                        'label' =>  esc_html__('Show', 'plazarttheme'),
+                        'label' =>  esc_html__('Show', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'hide',
-                        'label' =>  esc_html__('Hide', 'plazarttheme'),
+                        'label' =>  esc_html__('Hide', 'tz-plazarttheme'),
                     ),
                 )
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_filter',
-                'label'     =>  esc_html__('Filter Porfolio', 'plazarttheme'),
+                'label'     =>  esc_html__('Filter Porfolio', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  'portfolio-tags',
                 'type'      =>  'select',
@@ -392,17 +392,17 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' =>  'portfolio-tags',
-                        'label' =>  esc_html__('Portfolio tags', 'plazarttheme'),
+                        'label' =>  esc_html__('Portfolio tags', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  'portfolio-category',
-                        'label' =>  esc_html__('Portfolio category', 'plazarttheme'),
+                        'label' =>  esc_html__('Portfolio category', 'tz-plazarttheme'),
                     ),
                 )
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_loadding',
-                'label'     => esc_html__('Image loadding', 'plazarttheme'),
+                'label'     => esc_html__('Image loadding', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  '',
                 'type'      =>  'upload',
@@ -410,7 +410,7 @@ function plazarttheme_custom_meta_boxes(){
             ),
             array(
                 'id'        =>  'plazarttheme_porfolio_sidebar',
-                'label'     =>  esc_html__('Sidebar Option', 'plazarttheme'),
+                'label'     =>  esc_html__('Sidebar Option', 'tz-plazarttheme'),
                 'desc'      =>  '',
                 'sdt'       =>  'no',
                 'type'      =>  'select',
@@ -418,11 +418,11 @@ function plazarttheme_custom_meta_boxes(){
                 'choices'   =>  array(
                     array(
                         'value' =>  1,
-                        'label' =>   esc_html__('Show', 'plazarttheme'),
+                        'label' =>   esc_html__('Show', 'tz-plazarttheme'),
                     ),
                     array(
                         'value' =>  0,
-                        'label' =>   esc_html__('Hide', 'plazarttheme'),
+                        'label' =>   esc_html__('Hide', 'tz-plazarttheme'),
                     ),
                 )
             ),
@@ -438,10 +438,10 @@ function plazarttheme_custom_meta_boxes(){
      * Register our meta boxes using the
      * ot_register_meta_box() function.
      */
-    ot_register_meta_box( $plazarttheme_portfolio_meta_box );
+    ot_register_meta_box( $tz_plazarttheme_portfolio_meta_box );
 
 
-    ot_register_meta_box( $plazarttheme_pageportfolio_meta_box );
+    ot_register_meta_box( $tz_plazarttheme_pageportfolio_meta_box );
 
 
 

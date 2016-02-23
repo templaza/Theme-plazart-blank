@@ -1,21 +1,21 @@
 <?php
-global $plazarttheme_font_family, $plazarttheme_font_weight;
+global $tz_plazarttheme_font_family, $tz_plazarttheme_font_weight;
 
-$plazarttheme_get_fonts         =       plazarttheme_get_fonts();
-$plazarttheme_font_family       =       array();
-$plazarttheme_font_weight       =       array();
-$plazarttheme_font_family[0]    =       array(
+$tz_plazarttheme_get_fonts         =       tz_plazarttheme_get_fonts();
+$tz_plazarttheme_font_family       =       array();
+$tz_plazarttheme_font_weight       =       array();
+$tz_plazarttheme_font_family[0]    =       array(
                     'value'     =>      'Default',
                     'label'     =>      'Default'
                 );
 
-foreach ($plazarttheme_get_fonts as $plazarttheme_get_font) {
-        $plazarttheme_family            = $plazarttheme_get_font["family"];
-        $plazarttheme_id                = $plazarttheme_get_font["uid"];
+foreach ($tz_plazarttheme_get_fonts as $tz_plazarttheme_get_font) {
+        $tz_plazarttheme_family            = $tz_plazarttheme_get_font["family"];
+        $tz_plazarttheme_id                = $tz_plazarttheme_get_font["uid"];
                 /*   List Font Google   */
-                $plazarttheme_font_family[$plazarttheme_id] = array(
-                    'value'  =>  $plazarttheme_family,
-                    'label'  =>  $plazarttheme_family
+                $tz_plazarttheme_font_family[$tz_plazarttheme_id] = array(
+                    'value'  =>  $tz_plazarttheme_family,
+                    'label'  =>  $tz_plazarttheme_family
                 );
 
 }
